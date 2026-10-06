@@ -6,10 +6,9 @@ public:
         for(int i=0;i<nums.size();i++)
         {
            v[nums[i]]++; 
-        }
-        for(auto i:v)
-        {
-            if(i.second>1)
+        
+        
+            if(v[nums[i]]>1)
             return true;
             //else false;
 
