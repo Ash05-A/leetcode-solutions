@@ -1,17 +1,18 @@
 class Solution {
 public:
     bool isAnagram(string s, string t) {
-       vector<vector<int>>v(2);
+       if (s.size()!=t.size()) 
+       return false;
+       vector<int>box(26,0);
        for(int i=0;i<s.size();i++){
-        v[0].push_back(s[i]-'a');
-       } 
-        for(int i=0;i<t.size();i++){
-        v[1].push_back(t[i]-'a');
-        }
-    
-        sort(v[0].begin(),v[0].end());
-        sort(v[1].begin(),v[1].end());
-        return v[0]==v[1];
+       box[s[i]-'a']++;
+       box[t[i]-'a']--;
+       }
+       for(auto i:box){
+        if(i!=0)
+        return false;
+       }
+       return true;
     }
 };
 
